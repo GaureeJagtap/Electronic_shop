@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+</head>
+<body>
+  <main>
+    <div class="cart-items" id="cartItems">
+        <!-- Cart items will be displayed here -->
+    </div>
+
+    <!-- Total Cost and Proceed to Buy Button -->
+    <div class="total-cost" id="totalCost"></div>
+    <button class="proceed-to-buy-button" onclick="proceedToBuy()">Proceed to Buy products</button>
+  </main>
+
+  <script>
+    const product = [
+        { id: 0, image: 'gg-1.jpg', title: 'Z Flip Foldable Mobile', price: 12000 },
+        { id: 1, image: 'hh-2.jpg', title: 'Air Pods Pro', price: 1000 },
+        { id: 2, image: 'ee-3.jpg', title: '250D DSLR Camera', price: 2500 },
+        { id: 3, image: 'aa-1.jpg', title: 'Headphones', price: 870 },
+        { id: 4, image: 'bb-1.jpg', title: 'Audio Microphone', price: 2300 },
+        { id: 5, image: 'cc-1.jpg', title: 'Smart Watch', price: 1500 },
+        { id: 6, image: '2.webp', title: 'iPhone 15 pro max', price: 150000 },
+    ];
+
+    // Base URL for images
+    const imageUrlBase = '{{ url_for("static", filename="css/") }}';
+
+    // Add the base URL to each product's image path
+    product.forEach(item => item.image = imageUrlBase + item.image);
+
+    const categories = [...product];
+
+    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    var cartItemsContainer = document.getElementById('cartItems');
+    cartItemsContainer.innerHTML = '';
+
+    cartItems.forEach((item, index) => {
+        var cartItemDiv = document.createElement('div');
+        cartItemDiv.className = 'cart-item';
+        cartItemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+                <h2>${item.name}</h2>
+                <span>Rs. ${item.price}</span>
+                <div class="cart-item-buttons">
+                    <button class="remove-item-button" onclick="removeItem(${index})">Remove Item</button>
+                    <button class="buy-now-button" onclick="buyNow('${item.name}', '${item.price}')">Buy Now</button>
+                </div>
+            </div>
+        `;
+        cartItemsContainer.appendChild(cartItemDiv);
+    });
+
+    function removeItem(index) {
+        cartItems.splice(index, 1);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        location.reload();
+    }
+
+    function buyNow(productName, productPrice) {
+        alert(`Item '${productName}' added to the purchase process. Implement your buy now logic here.`);
+    }
+
+    function calculateTotalCost() {
+        var totalCost = cartItems.reduce((acc, item) => acc + parseFloat(item.price), 0);
+        document.getElementById('totalCost').textContent = `Total Cost: Rs. ${totalCost}.00`;
+    }
+
+    function proceedToBuy() {
+        alert('Implement your logic to proceed to the buy page.');
+    }
+
+    calculateTotalCost();
+  </script>
+</body>
+</html>

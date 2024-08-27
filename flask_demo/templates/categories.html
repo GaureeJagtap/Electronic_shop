@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Shopee</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+    
+</head>
+<body>
+<div class="form">
+    <form action="{{ url_for('categories') }}" method="POST">
+    <header>
+        <a href="page1.html">&#9665; </a>
+        <h1>Mobile Shopee</h1>
+    </header>
+
+    <main>
+        <div class="categories-container">
+            <div class="category">
+                <img src="men2.jpg" alt="Category 1">
+                <div class="category-details">
+                    <h3>Men's Apparel</h3>
+                    <p>Discover our latest collection for men.</p>
+                </div>
+            </div>
+
+            <div class="category">
+                <img src="women1.jpeg" alt="Category 2">
+                <div class="category-details">
+                    <h3>Women's Apparel</h3>
+                    <p>Explore our trendy collection for women.</p>
+                </div>
+            </div>
+
+            <div class="category">
+                <img src="watch.jpeg" alt="Category 3">
+                <div class="category-details">
+                    <h3>Accessories</h3>
+                    <p>Find the perfect accessories to complement your style.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</form>
+</div>
+</body>
+</html>

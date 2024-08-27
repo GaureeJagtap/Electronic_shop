@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 10px;
+            width: 370px;
+            height: 370px;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product-box:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            padding-top: 10px;
+            width: 40%;
+            height: 200px;
+            align-self: center;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            flex-grow: 1; /* Allow details to take remaining space */
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e44d26;
+        }
+
+        .product-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto; /* Push buttons to the bottom */
+        }
+
+        .product-button {
+            padding: 8px;
+            margin: 5px;
+            width: 50%; /* Adjust button width */
+            text-align: center;
+            background-color: #f343cd;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-button:hover {
+            background-color: #c715b8;
+        }
+    </style>
+    <script>
+        function redirectToRelatedItems() {
+            window.location.href = 'related_items.html'; // Change the URL as needed
+        }
+    </script>
+</head>
+<body>
+
+    <div class="product-box">
+        <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+        <div class="product-details">
+            <div class="product-name">Product 1</div>
+            <div class="product-description">Description for Product 1</div>
+            <div class="product-price">$19.99</div>
+            <div class="product-buttons">
+                <button class="product-button">Add to Cart</button>
+                <button class="product-button">Buy Product</button>
+            </div>
+        </div>
+    </div>
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="product2.jpg" alt="Product 2">
+    <div class="product-details">
+        <div class="product-name">Product 2</div>
+        <div class="product-description">Description for Product 2</div>
+        <div class="product-price">$24.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="product2.jpg" alt="Product 2">
+    <div class="product-details">
+        <div class="product-name">Product 2</div>
+        <div class="product-description">Description for Product 2</div>
+        <div class="product-price">$24.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="product2.jpg" alt="Product 2">
+    <div class="product-details">
+        <div class="product-name">Product 2</div>
+        <div class="product-description">Description for Product 2</div>
+        <div class="product-price">$24.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="product2.jpg" alt="Product 2">
+    <div class="product-details">
+        <div class="product-name">Product 2</div>
+        <div class="product-description">Description for Product 2</div>
+        <div class="product-price">$24.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="product2.jpg" alt="Product 2">
+    <div class="product-details">
+        <div class="product-name">Product 2</div>
+        <div class="product-description">Description for Product 2</div>
+        <div class="product-price">$24.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="product2.jpg" alt="Product 2">
+    <div class="product-details">
+        <div class="product-name">Product 2</div>
+        <div class="product-description">Description for Product 2</div>
+        <div class="product-price">$24.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<div class="product-box">
+    <img class="product-image" src="https://lifemobile.lk/wp-content/uploads/2020/10/iPhone-12-Pro-Max.png" alt="Product 1">
+    <div class="product-details">
+        <div class="product-name">Product 1</div>
+        <div class="product-description">Description for Product 1</div>
+        <div class="product-price">$19.99</div>
+        <div class="product-buttons">
+            <button class="product-button">Add to Cart</button>
+            <button class="product-button">Buy Product</button>
+        </div>
+    </div>
+</div>
+
+<input type="text" id="searchInput" onmouseover="redirectToRelatedItems()" placeholder="Search">
+
+</body>
+</html>

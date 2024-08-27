@@ -1,0 +1,44 @@
+{% block head %}
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+  <script>
+    function validateForm() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Email validation
+      if (!email.includes('@')) {
+        alert("Email must contain '@'");
+        return false;
+      }
+
+      // Password validation
+      var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!password.match(passwordRegex)) {
+        alert("Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, one special character, and be at least 8 characters long.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+{% endblock %}
+
+{% block body %}
+  <div class="form">
+    <h2>Sign Up</h2>
+    <form action="/signup" method="POST" onsubmit="return validateForm()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <input type="submit" class="button" value="Sign Up">
+    </form>
+
+    <p>Already have an account? <a href="{{ url_for('login_page') }}">Login</a></p>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/confirmation.css') }}">
+</head>
+<body>
+    <div class="confirmation-container">
+        <h2>Order Confirmation</h2>
+
+        <p>Product: {{ product.name }}</p>
+        <p>Price per unit: Rs. {{ product.price }}.00</p>
+        <p>Quantity: {{ quantity }}</p>
+        <p>Total Price: Rs. {{ total_price }}.00</p>
+        <p>Delivery Address: {{ address }}</p>
+        <p>Payment Mode: {{ payment_mode }}</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buy.css') }}">
+</head>
+<body>
+    <div class="buy-container">
+        <h2>Buy Now</h2>
+
+        <form method="post" action="{{ url_for('process_buy_request') }}">
+            <input type="hidden" name="product_name" value="{{ product.name }}">
+            
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" value="1" required>
+
+            <label for="address">Address:</label>
+            <textarea name="address" rows="4" required></textarea>
+
+            <label for="payment_mode">Payment Mode:</label>
+            <select name="payment_mode" required>
+                <option value="credit_card">Credit Card</option>
+                <option value="debit_card">Debit Card</option>
+                <!-- Add more payment options if needed -->
+            </select>
+
+            <button type="submit">Proceed to Payment</button>
+        </form>
+    </div>
+</body>
+</html>

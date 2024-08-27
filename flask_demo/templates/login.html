@@ -1,0 +1,38 @@
+{% block head %}
+    <title>Login </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <script>
+        function validateForm()
+        {
+            if (!email.includes('@'))
+            {
+                alert("Email must contain '@'");
+                return false;
+            }
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!password.match(passwordRegex))
+            {
+                alert("Password must contain at least one lowercase letter, one uppercase letter, one numeric digit, one special character, and be at least 8 characters long.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+{% endblock %}
+
+
+{% block body %}
+    <div class="form">
+        <h2>Login</h2>
+        <form action="/login" method="POST" onclick="return validateForm()" >
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required autocomplete="off">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required autocomplete="off">
+
+            <input type="submit" class="button" value="Login">
+        </form>
+    </div>
+{% endblock %}

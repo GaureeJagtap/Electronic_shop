@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page1.css') }}">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form class="form" action='/homepage'>
+        <header>
+            <img src="{{ url_for('static', filename='css/logo.jpg') }}" alt="Fashion">
+            <nav>
+                <a href="categories.html">Categories</a>
+                <a href="cart.html">Cart</a>
+                <a href="account.html">Account</a>
+                <a href="buy.html">Buy</a>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <div class="sidebar">
+                <div class="sidehead">
+                    <div class="dots">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-circle" style="color: #333;"></i>
+                        <i class="fa-solid fa-circle"></i>
+                    </div>
+                    <hr style="margin:  15px  0; border:  1px solid #eee;">
+                </div>
+                <div class="sidebody" style="height:  69vh;">
+                    <div class="searchbar">
+                        <input placeholder="Search..." id="searchBar" name="searchBar" type="text">
+                        <i class="fa-solid fa-magnifying-glass glass"></i>
+                    </div>
+                </div>
+                <div class="sidefoot">
+                    <hr style="margin:  15px  0; border:  1px solid #eee;">
+                    <div class="social-icons">
+                        <i class="fa-brands fa-square-facebook"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-square-github"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="data">
+                <div class="top">
+                    <p>+91 8468900960</p>
+                    <p>philipselectronic@gmail.com</p>
+                </div>
+                <div class="headname">
+                    <p>Philips Electronics </p>
+                </div>
+                <div class="body">
+                    <div id="root"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+  <script>
+
+        document.getElementById('searchBar').addEventListener('keyup', (e) => {
+        const searchData = e.target.value.toLowerCase();
+
+        // Make an AJAX request to the Flask backend for search results
+        fetch(`/search?query=${searchData}`)
+            .then(response => response.json())
+            .then(data => displaySearchResults(data.products))
+            .catch(error => console.error('Error:', error));
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('/get_all_products')
+            .then(response => response.json())
+            .then(data => displayAllProducts(data.products))
+            .catch(error => console.error('Error:', error));
+    });
+
+        function displayAllProducts(products) {
+            const rootElement = document.getElementById('root');
+
+            rootElement.innerHTML = products.map(product => (
+                `<div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src="${product.imgURL}">
+                    </div> 
+                    <div class='bottom'>
+                        <b>${product.name}</b>
+                        <h2>Rs. ${product.price}.00</h2>
+                        <p>${product.corpus}</p>
+                        <div class="main-product-buttons">
+                            <button onclick='addToCart("${product.name}", ${product.price}, "${product.imgURL}", "${product.corpus}")'>Add to Cart</button>
+                            <button class="buyNowBtn" onclick='buyNow("${product.name}", ${product.price}, "${product.imgURL}", "${product.corpus}")'>Buy Now</button>
+                        </div>
+                        <!-- Add any additional information you want to display -->
+                    </div>
+                </div>`
+            )).join('');
+        }
+
+        function displaySearchResults(products) {
+        const rootElement = document.getElementById('root');
+
+        if (products.length === 0) {
+            rootElement.innerHTML = '<p>No results found.</p>';
+        } else {
+            rootElement.innerHTML = products.map(product => (
+                `<div class='box'>
+                    <div class='img-box'>
+                        <img class='images' src="${product.imgURL}">
+                    </div> 
+                    <div class='bottom'>
+                        <b>${product.name}</b>
+                        <h2>Rs. ${product.price}.00</h2>
+                        <p>${product.corpus}</p>
+                        <div class="main-product-buttons">
+                            <button onclick='addToCart("${product.name}", ${product.price}, "${product.imgURL}", "${product.corpus}")'>Add to Cart</button>
+                            <button class="buyNowBtn" onclick='buyNow("${product.name}", ${product.price}, "${product.imgURL}", "${product.corpus}")'>Buy Now</button>
+                        </div>
+                        <!-- Add any additional information you want to display -->
+                    </div>
+                </div>`
+            )).join('');
+        }
+    }
+
+
+        function addToCart(name, price, imgURL, corpus) {
+    const product = { name, price, imgURL, corpus };
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    cartItems.push(product);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    alert(`Product '${name}' added to cart.`);
+    displayCart(); // Display cart contents
+}
+
+
+        function buyNow(name, price, imgURL, corpus) {
+    const product = { name, price, imgURL, corpus };
+    //addToCart(product);
+   // displayCart(); // Display cart contents
+    window.location.href = 'buy.html';
+}
+
+function displayCart() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const cartDisplay = document.getElementById('cartDisplay');
+    
+    if (cartItems.length > 0) {
+        cartDisplay.innerHTML = '<h3>Shopping Cart:</h3>';
+        cartItems.forEach(item => {
+          console.log(product.imgURL);
+            cartDisplay.innerHTML += `
+                <div class="cart-item">
+                    <img src="${product.imgURL}" alt="${product.name}" class="cart-item-image">
+                    <p>${product.name} - Rs. ${product.price}.00</p>
+                </div>`;
+        });
+    } else {
+        cartDisplay.innerHTML = '<p>Your cart is empty.</p>';
+    }
+}
+
+  </script>
+</body>
